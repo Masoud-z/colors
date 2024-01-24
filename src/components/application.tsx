@@ -1,9 +1,9 @@
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import SavedColors from './saved-colors';
 import RelatedColors from './related-colors';
 import AdjustColors from './adjust-colors';
 import ColorPicker from './color-picker';
-import { colorReducer, initialState } from '../color-reduver';
+import { colorReducer, initialState } from '../color-reducer';
 
 const Application = () => {
   const [{ hexColor }, dispatch] = useReducer(colorReducer, initialState);
@@ -19,7 +19,7 @@ const Application = () => {
           })
         }
       />
-      <AdjustColors hexColor={hexColor} />3
+      <AdjustColors dispatch={dispatch} hexColor={hexColor} />3
       <RelatedColors hexColor={hexColor} />
       <SavedColors hexColor={hexColor} />
     </div>

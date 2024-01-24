@@ -12,6 +12,8 @@ type UpdateRGBColorAction = {
   payload: { rgb: [number, number, number] };
 };
 
+export type AdjustColorActions = UpdateHexColorAction | UpdateRGBColorAction;
+
 type ColorState = {
   hexColor: string;
 };
@@ -22,14 +24,14 @@ export const initialState: ColorState = {
 
 export const colorReducer = (
   state: ColorState = initialState,
-  action: UpdateHexColorAction | UpdateRGBColorAction,
+  action: AdjustColorActions,
 ) => {
   if (action.type === 'update-hex-color') {
     const { hexColor } = action.payload;
     return { ...state, hexColor };
   }
   if (action.type === 'update-rgb-color') {
-    const hexColor = rgb.hex(action.payload.rgb);
+    const hexColor = '#'+rgb.hex(action.payload.rgb);
     return { ...state, hexColor };
   }
 
