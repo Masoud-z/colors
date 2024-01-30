@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ColorProvider>
-      <Application />
+      <Application /> 
     </ColorProvider>
   </React.StrictMode>,
 );
